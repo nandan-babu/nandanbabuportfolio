@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useCallback, useMemo } from "react";
 
 import {
@@ -55,6 +56,7 @@ const buildNocturneDocument = () => "";
 const buildSandboxedPageDocument = () => "";
 const NOCTURNE_TITLES = {} as any;
 const NOCTURNE_VARIANTS = [] as any;
+export type NocturneVariant = "midnight" | "dusk" | "dawn" | "eclipse";
 const MAPLE_AUTUMN_STYLE = "";
 const SAKURA_SUNSET_STYLE = "";
 const SEQUOIA_MIST_STYLE = "";

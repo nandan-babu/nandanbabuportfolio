@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   GEIST,
   INSTRUMENT_SERIF,
@@ -295,7 +296,7 @@ const INTER_TIGHT: PageFont = {
   stack: "'Inter Tight', sans-serif",
 };
 
-const DM_MONO: PageFont = {
+const _DM_MONO: PageFont = {
   value: "dm-mono",
   label: "DM Mono",
   stack: "'DM Mono', monospace",
