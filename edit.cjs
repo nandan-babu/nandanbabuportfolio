@@ -15,7 +15,10 @@ const replacements = [
   [
     `Enter Kyoto through its quiet thresholds, where ritual,
       craft, and memory shape the path.`,
-    `Enthusiastic Computer Applications student with hands-on experience in Angular, Node.js, and Python. Skilled in building responsive frontends and efficient backend systems.`
+    `Software Developer with hands-on experience in production web application development using Angular, Node.js,
+     Python, Django, MySQL, and REST APIs. Experienced in frontend development, backend services, database integration,
+     API development, debugging, and application maintenance. Strong focus on building reliable, maintainable, and
+     user-friendly software solutions.`
   ],
   ['<b class="jp">山門</b><i>Sanmon — before the bell</i>', '<b>Profile</b><i>About Me</i>'],
   ['<span class="v jp">影の道</span>', '<span class="v jp">開発者</span>'],

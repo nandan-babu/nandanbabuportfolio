@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediPlus Details</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #dfe7e0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 3rem;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.6rem;
+            color: #fff;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .card p, .card ul {
+            color: #9aa0a6;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        .card ul {
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .gallery-title {
+            margin-top: 4rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 3rem;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 16/9;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        .gallery-item span.caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            padding: 0.5rem;
+            font-size: 0.85rem;
+            text-align: center;
+            z-index: 2;
+        }
+        .back-btn {
+            background: none;
+            border: none;
+            color: #9aa0a6;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-bottom: 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+            padding: 0;
+            font-family: inherit;
+            text-decoration: none;
+            align-self: flex-start;
+            margin-left: max(0px, calc(50% - 450px));
+        }
+        .back-btn:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-btn">← Back to Portfolio</a>
+    
+    <div class="card">
+        <h2>MediPlus – Doctor Appointment Management System</h2>
+        <p>The MediPlus application is a web-based doctor appointment management system developed to connect users with doctors and simplify the process of finding doctors, scheduling meetings, and tracking appointment activities. The system has three main modules: Admin, User, and Doctor, each with specific functionalities.</p>
+        
+        <p><strong>1. Admin Module</strong></p>
+        <ul>
+            <li>Approves or rejects registration requests from users and doctors.</li>
+            <li>Monitors the total number of scheduled appointments and meetings.</li>
+            <li>Tracks how many doctors each user has visited.</li>
+            <li>Manages and monitors overall system activity through the admin dashboard.</li>
+        </ul>
+
+        <p><strong>2. User Module</strong></p>
+        <ul>
+            <li>Registers and logs in to the application after account approval.</li>
+            <li>Searches and views doctors based on their medical specialties and associated hospitals.</li>
+            <li>Schedules meetings or appointments with selected doctors.</li>
+            <li>Views and manages personal profile details and password settings.</li>
+            <li>Tracks appointment history and views the number of doctors visited.</li>
+        </ul>
+
+        <p><strong>3. Doctor Module</strong></p>
+        <ul>
+            <li>Registers and logs in after admin approval.</li>
+            <li>Views upcoming, completed, and ongoing appointments.</li>
+            <li>Monitors the number of meetings conducted with different users.</li>
+            <li>Views appointment details and tracks interactions with users.</li>
+        </ul>
+
+        <p><strong>Overall Purpose:</strong> MediPlus centralizes doctor discovery and appointment scheduling in a single platform. It helps users find suitable doctors, enables doctors to manage their appointment schedules, and allows administrators to monitor registrations, appointments, and system activity efficiently.</p>
+        
+        <h3 class="gallery-title">Application Mockups</h3>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="/images/mediplus/doctor_dashboard.jpg" alt="Doctor Dashboard" onerror="this.style.display='none'">
+                <span class="caption">Doctor Dashboard</span>
+            </div>
+            <div class="gallery-item">
+                <img src="/images/mediplus/doctor_directory.jpg" alt="Doctor Directory" onerror="this.style.display='none'">
+                <span class="caption">Doctor Directory</span>
+            </div>
+            <div class="gallery-item">
+                <img src="/images/mediplus/booking.jpg" alt="Appointment Booking" onerror="this.style.display='none'">
+                <span class="caption">Appointment Booking</span>
+            </div>
+            <div class="gallery-item">
+                <img src="/images/mediplus/admin.jpg" alt="Admin Dashboard" onerror="this.style.display='none'">
+                <span class="caption">Admin Dashboard</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

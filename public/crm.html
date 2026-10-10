@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM App Links</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #dfe7e0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            margin: 0;
+            box-sizing: border-box;
+        h1 {
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 3rem;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            color: #fff;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .card p {
+            color: #9aa0a6;
+            line-height: 1.7;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        a {
+            color: #d43826;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: opacity 0.3s ease;
+        }
+        a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        
+        /* Gallery Styles */
+        .gallery-title {
+            margin-top: 4rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 3rem;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 16/9;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 10%; /* Focus slightly below the top to crop out browser UI */
+            transform: scale(1.1); /* Zoom in to crop edges */
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        .placeholder-text {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            z-index: 0;
+        }
+
+        /* List vs Detail View */
+        #list-view {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 900px;
+        }
+        .list-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        .list-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .list-card h2 {
+            margin: 0;
+            color: #fff;
+            font-size: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+        
+        #detail-view {
+            display: none;
+            width: 100%;
+            max-width: 900px;
+            animation: fadeIn 0.4s ease forwards;
+        }
+        .back-btn {
+            background: none;
+            border: none;
+            color: #9aa0a6;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-bottom: 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+            padding: 0;
+            font-family: inherit;
+        }
+        .back-btn:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1>CRM Applications</h1>
+    
+    <!-- List View -->
+    <div id="list-view">
+        <div class="list-card" onclick="showDetail('sarathy')">
+            <h2>Sarathy KTM Sales CRM</h2>
+        </div>
+        <div class="list-card" onclick="showDetail('trackbox')">
+            <h2>Trackbox v2</h2>
+        </div>
+        <div class="list-card" onclick="showDetail('neotronics')">
+            <h2>Neotronics CRM</h2>
+        </div>
+    </div>
+
+    <!-- Detail View -->
+    <div id="detail-view">
+        <button class="back-btn" onclick="showList()">← Back to list</button>
+        
+        <!-- Sarathy KTM Details -->
+        <div class="card detail-card" id="sarathy-detail" style="display: none;">
+            <h2>Sarathy KTM Sales CRM</h2>
+            <p>Developed a web-based CRM application for an automobile dealership to streamline customer lead management, sales tracking, follow-up scheduling, inventory monitoring, branch operations, and reporting. The system helps sales teams manage customer interactions, track lead conversion progress, and improve dealership workflow through centralized data management and role-based access control.</p>
+            <div class="links-container">
+                <a href="https://ktm.sales.sarathymotors.in/#/" target="_blank">Access CRM Application ↗</a>
+            </div>
+            
+            <h3 class="gallery-title">Application Screenshots</h3>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 1</span>
+                    <img src="/images/Screenshot 2026-10-10 174414.png" alt="CRM Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 2</span>
+                    <img src="/images/Screenshot 2026-10-10 174451.png" alt="CRM Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 3</span>
+                    <img src="/images/Screenshot 2026-10-10 174530.png" alt="CRM Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 4</span>
+                    <img src="/images/Screenshot 2026-10-10 174537.png" alt="CRM Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 5</span>
+                    <img src="/images/Screenshot 2026-10-10 174541.png" alt="CRM Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 6</span>
+                    <img src="/images/Screenshot 2026-10-10 174545.png" alt="CRM Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 7</span>
+                    <img src="/images/Screenshot 2026-10-10 174550.png" alt="CRM Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 8</span>
+                    <img src="/images/Screenshot 2026-10-10 174556.png" alt="CRM Screenshot" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+
+        <!-- Trackbox v2 Details -->
+        <div class="card detail-card" id="trackbox-detail" style="display: none;">
+            <h2>Trackbox v2</h2>
+            <p>Developed a comprehensive CRM application tailored for study abroad operations. The system features exact functionality for lead management, student application tracking, document handling, and communication logging. It provides robust tools to streamline the entire student journey from initial inquiry to enrollment, improving workflow efficiency and data centralization.</p>
+            <div class="links-container">
+                <a href="https://crm.ufstech.co.in/#/crm-dashboard" target="_blank">Access Trackbox v2 ↗</a>
+            </div>
+            
+            <h3 class="gallery-title">Application Screenshots</h3>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 1</span>
+                    <img src="/images/trackbox/Screenshot 2026-10-10 175203.png" alt="Trackbox Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 2</span>
+                    <img src="/images/trackbox/Screenshot 2026-10-10 175210.png" alt="Trackbox Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 3</span>
+                    <img src="/images/trackbox/Screenshot 2026-10-10 175220.png" alt="Trackbox Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 4</span>
+                    <img src="/images/trackbox/Screenshot 2026-10-10 175231.png" alt="Trackbox Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 5</span>
+                    <img src="/images/trackbox/Screenshot 2026-10-10 175236.png" alt="Trackbox Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 6</span>
+                    <img src="/images/trackbox/Screenshot 2026-10-10 175256.png" alt="Trackbox Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 7</span>
+                    <img src="/images/trackbox/Screenshot 2026-10-10 175344.png" alt="Trackbox Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 8</span>
+                    <img src="/images/trackbox/Screenshot 2026-10-10 175350.png" alt="Trackbox Screenshot" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+
+        <!-- Neotronics Details -->
+        <div class="card detail-card" id="neotronics-detail" style="display: none;">
+            <h2>Neotronics CRM</h2>
+            <p>Developed a dedicated CRM application for Neotronics to streamline lead tracking, client communication, and overall sales operations. Similar to Trackbox, this system manages the lifecycle of customer relationships, providing centralized data access, role-based controls, and detailed performance tracking to improve workflow efficiency.</p>
+            <div class="links-container">
+                <a href="https://neotronics.trackbox.live/#/auth/login" target="_blank">Access Neotronics CRM ↗</a>
+            </div>
+            
+            <h3 class="gallery-title">Application Screenshots</h3>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 1</span>
+                    <img src="/images/neotronics/Screenshot 2026-10-10 180119.png" alt="Neotronics Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 2</span>
+                    <img src="/images/neotronics/Screenshot 2026-10-10 180131.png" alt="Neotronics Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 3</span>
+                    <img src="/images/neotronics/Screenshot 2026-10-10 180136.png" alt="Neotronics Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 4</span>
+                    <img src="/images/neotronics/Screenshot 2026-10-10 180141.png" alt="Neotronics Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 5</span>
+                    <img src="/images/neotronics/Screenshot 2026-10-10 180146.png" alt="Neotronics Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 6</span>
+                    <img src="/images/neotronics/Screenshot 2026-10-10 180150.png" alt="Neotronics Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 7</span>
+                    <img src="/images/neotronics/Screenshot 2026-10-10 180154.png" alt="Neotronics Screenshot" onerror="this.style.display='none'">
+                </div>
+                <div class="gallery-item">
+                    <span class="placeholder-text">Image 8</span>
+                    <img src="/images/neotronics/Screenshot 2026-10-10 180158.png" alt="Neotronics Screenshot" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showDetail(id) {
+            document.getElementById('list-view').style.display = 'none';
+            document.getElementById('detail-view').style.display = 'block';
+            
+            // Hide all detail cards
+            var cards = document.querySelectorAll('.detail-card');
+            cards.forEach(function(card) {
+                card.style.display = 'none';
+            });
+            
+            // Show the requested detail card
+            document.getElementById(id + '-detail').style.display = 'block';
+        }
+        function showList() {
+            document.getElementById('detail-view').style.display = 'none';
+            document.getElementById('list-view').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
